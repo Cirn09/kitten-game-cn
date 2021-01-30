@@ -46,6 +46,7 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
 
             "getTCPerSacrifice": "Time Crystals per Sacrifice",
             "getRelicPerTCRefine": "Relics Per Time Crystal Refine",
+            "getTradeAmountAvg": "Time Crystals Blance",
             "getBlazarsForShatterEngine": "Blazars for Shatter Engine",
             
             "others": "Others",
@@ -103,6 +104,7 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
 
             "getTCPerSacrifice": "每次献祭得到的时间水晶",
             "getRelicPerTCRefine": "每次时间水晶精炼得到遗物",
+            "getTradeAmountAvg": "跳1年的水晶收入数量",
             "getBlazarsForShatterEngine": "水晶收支平衡所需耀变体",
 
             "others": "其他",
@@ -734,51 +736,16 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
         return 1 + game.getEffect("relicRefineRatio") * game.religion.getZU("blackPyramid").val;
     },
     
-    getTradeAmountAvg: function(race){
-        var r = null;
-        try{
-            r = this.game.diplomacy.get(race);
-        }
-        catch(e){
-        }
-        if(r){
-            var ratio = this.game.diplomacy.getTradeRatio()+ 1;
-            var curSeason = this.game.calendar.getCurSeason().name;
-            var sells = [];
-            for(var j in r.sells){
-                var s = r.sells[j];
-                var min = 0;
-                var max = 0;
-                if(r.name == "zebras" && s.name == "titanium"){
-                    var ships = this.game.resPool.get("ship").value;
-                    var odds = Math.min(15 + ships * 0.35 , 100);
-                    var amt = 1.5 * ((ships / 100) * 2 + 1);
-                    min = amt;
-                    max = amt;
-                    sells[s.name] = amt;
-                }
-                else{
-                    var sratio = 1;
-                    var tratio = ratio;
-                    if(r.name == "leviathans")
-                        tratio *= (1 + 0.02 * r.energy);
-                    else
-                        sratio += s.seasons[curSeason];
-                    var val = sratio * s.value * (1 - s.width / 2);
-                    max = val;
-                    max += Math.floor(s.value * sratio * s.width);
-                    val *= tratio;
-                    min = val;
-                    max *= tratio;
-                    var amt = (min + max) / 2;
-                    amt *= s.chance / 100;
-                    sells[s.name] = amt;
-                }
-            }
-            return sells;
-        }
-        return []
-    },
+	getTradeAmountAvg: function(race) {
+		var rRatio = 1 + 0.02 * this.game.diplomacy.get("leviathans").energy; //利维坦能量
+		var tRatio = 1 + game.diplomacy.getTradeRatio() + game.diplomacy.calculateTradeBonusFromPolicies("leviathans",
+			this.game); //贸易加成包括政策
+		var nandesu = 0.196 * game.calcResourcePerTick("unobtainium"); //每年与利维坦贸易的难得素的产量
+		var shatter = game.getEffect("shatterTCGain") * (1 + game.getEffect("rrRatio")); //耀变体*资源回复的效果
+		var unPerTerade = shatter * nandesu; //燃烧水晶每年获得的难得素
+		var perterade = Math.floor(1000 * rRatio * tRatio * unPerTerade) / 1000; //燃烧时间水晶水晶收益
+		return perterade;
+	},
 
     getBlazarsForShatterEngine: function(){
         var numRR = this.game.time.getCFU("ressourceRetrieval").val;
@@ -963,6 +930,11 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
                 // title: "Relics Per Time Crystal Refine",
                 val: 0,
             },
+            {
+                name: "getTradeAmountAvg",
+                // title: "Blazars for Shatter Engine",
+                val: 0,
+            },           
             {
                 name: "getBlazarsForShatterEngine",
                 // title: "Blazars for Shatter Engine",
