@@ -835,7 +835,7 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
         if (this.game.bld.get("aiCore").effects["aiLevel"] >= 15)
             return this.i18n("done");
         if (gflopsproduction > 0)
-            return this.game.toDisplaySeconds((lv15Gflops - gflopsHave) / (gflopsproduction * this.game.getRateUI()));
+            return this.game.toDisplaySeconds((lv15Gflops - gflopsHave) / (gflopsproduction * this.game.getTicksPerSecondUI()));
         else
             return this.i18n("infinity");
     },
