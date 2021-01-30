@@ -91,7 +91,7 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
             "religion": "宗教",
 
             "getReligionProductionBonusCap": "太阳革命极限加成",
-            "getApocryphaProgress": "新约外传进度",
+            "getApocryphaProgress": "推荐下一超越等级的的进度",
             "getNextTranscendTierProgress": "到达下一超越等级的进度",
 
             "paragon": "领导力加成",
@@ -691,14 +691,21 @@ dojo.declare("classes.managers.NummonStatsManager", com.nuclearunicorn.core.TabM
         return this.roundThisNumber(result) + "%";
     },
 
-    getApocryphaProgress: function(){
-        var tier = this.game.religion.transcendenceTier + 1;
-        var tt = this.game.religion._getTranscendTotalPrice(tier) - game.religion._getTranscendTotalPrice(tier - 1);
-        var worship = this.game.religion.faith / 1000000 * tier * tier * 1.01;
-        var perc = worship / tt * 100;
-        perc = Math.round(perc * 1000) / 1000;
-        return perc + "%";
-    },
+	getApocryphaProgress: function() {
+		var tier = this.game.religion.transcendenceTier + 1; //超越等级+1
+		var tt = this.game.religion._getTranscendTotalPrice(tier) - game.religion._getTranscendTotalPrice(tier - 1); //下一个超越等级所需要的的顿悟量
+		var obelisk = this.game.religion.getTU("blackObelisk").val; //黑暗尖碑的数量
+		var obeliskRatio = (tier * 5 * obelisk + 1000) / (this.game.religion.transcendenceTier * 5 * obelisk + 1000); //黑暗尖碑带来的提升比
+		var adoreIncreaceRatio = Math.pow((tier + 1) / (tier), 2); //下个超越等级带来的系数
+		var needbaifenbi = adoreIncreaceRatio * obeliskRatio;
+		var x = tt;
+		var k = needbaifenbi;
+		var epiphanyRecommend = (1 - k + Math.sqrt(80 * (k * k - 1) * x + (k - 1) * (k - 1))) * k / (40 * (k + 1) * (k + 1) *
+			(k - 1)) + x + x / (k * k - 1); //推荐下一级超越等级所要的顿悟量
+		var percent = epiphanyRecommend / tt * 100; //转化成百分比形势
+		baifenbi = Math.round(percent * 1000) / 1000; //保留4位数
+		return percent + "%";
+	},
 
     getNextTranscendTierProgress: function(){
         var tier = this.game.religion.transcendenceTier + 1;
