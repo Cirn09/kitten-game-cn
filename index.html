@@ -701,7 +701,7 @@
 				localStorage['zh.ks.enable'] = 'enable';
 				$("#ks-label").text("可爱的猫猫科学家为您服务");
 				$("#set-ks-enable").attr("checked", true);
-				document.body.appendChild(document.createElement('script')).src = 'kitten-scientists.user.js';
+				document.body.appendChild(document.createElement('script')).src = 'cbc-kitten-scientists/kitten-scientists.user.js';
 			};
 			var disableKS = function () {
 				localStorage['zh.ks.enable'] = 'disable';
@@ -727,25 +727,11 @@
 					}, 2000);
 				} else {
 					// NummonInit();
-					document.body.appendChild(document.createElement('script')).src = 'NummonCalc.js';
+					document.body.appendChild(document.createElement('script')).src = 'NummonCalc/NummonCalc.js';
 				}
 			};
 			_282d5adfdca92885cd9f210a9b60a328();
 		</script>
-
-
-	  <script
-		type="text/javascript"
-		src="https://crowdin.com/js/crowdjet/crowdjet.js">
-	  </script>
-	  <div
-		id="crowdjet-container"
-		data-project-id="410426"
-		style="bottom: 90px; right: 20px;">
-	  </div>
-	  <div id="crowdjet-expand-container" onclick="$('#crowdjet-container').toggle();$('#crowdjet-iframe').contents().find('#crowdjet').toggleClass('expanded');">
-		[文|A]
-	  </div>
 
 	</body>
 </html>
