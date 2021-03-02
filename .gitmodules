@@ -1,0 +1,6 @@
+[submodule "cbc-kitten-scientists"]
+	path = cbc-kitten-scientists
+	url = https://github.com/Cirn09/cbc-kitten-scientists.git
+[submodule "NummonCalc"]
+	path = NummonCalc
+	url = https://github.com/Cirn09/NummonCalc.git
