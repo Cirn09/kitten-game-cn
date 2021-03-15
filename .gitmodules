@@ -4,3 +4,6 @@
 [submodule "NummonCalc"]
 	path = NummonCalc
 	url = https://github.com/Cirn09/NummonCalc.git
+[submodule "KGProgressBars"]
+	path = KGProgressBars
+	url = https://github.com/vl20100/KGProgressBars

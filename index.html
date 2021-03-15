@@ -579,7 +579,10 @@
 				<label id="optionHighlightUnavailable" for="highlightUnavailable">Highlight buildings limited by storage space</label>
 				<br>
 				<input id="set-ks-enable" type="checkbox" >
-				<label id="ks-label" for="set-ks-enable" style="color:red;">启用小猫珂学家</label> <!-- [<a href="https://gitee.com/likexia/cbc-kitten-scientists" target="_blank" style="color:blue;text-decoration:none;" title="点击查看">教程</a>] -->
+				<label id="ks-label" for="set-ks-enable" style="color:red;">启用小猫珂学家</label>
+				<br>
+				<input id="set-kgp-enable" type="checkbox" >
+				<label id="kgp-label" for="set-kgp-enable" style="color:red;">启用资源进度条</label>
 				<br>
 				<input id="hideSell" type="checkbox" onclick="gamePage.opts.hideSell = $('#hideSell')[0].checked;">
 				<label id="optionHideSell" for="hideSell">Hide 'sell' buttons</label>
@@ -720,6 +723,29 @@
 					enableKS()
 				}
 			});
+
+			var enableKGP = function () { 
+				localStorage['zh.kgp.enable'] = 'enable';
+				$("#set-kgp-enable").attr("checked", true);
+				document.body.appendChild(document.createElement('script')).src = 'KGProgressBars/dist/KGP.js';
+			};
+			var disableKGP = function () {
+				localStorage['zh.kgp.enable'] = 'disable';
+				$("#set-kgp-enable").attr("checked", false);
+			};
+
+			if(localStorage['zh.kgp.enable'] === 'enable') {
+				enableKGP()
+			}
+			$("#set-kgp-enable").on('change', function() {
+				if(localStorage['zh.kgp.enable'] === 'enable') {
+					disableKGP();
+                    alert("请在保存游戏后刷新页面");
+				} else {
+					enableKGP()
+				}
+			});
+			
 			var _282d5adfdca92885cd9f210a9b60a328 = function() {
 				if (typeof gamePage === "undefined") {
 					setTimeout(function(){
