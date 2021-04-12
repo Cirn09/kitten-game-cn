@@ -1,7 +1,7 @@
 # 猫国建设者游戏百科
 
 ---
-<font color=red size=4><strong>wiki对应游戏版本：1.4.8.3，目前部分内容已经过时，正在更新中</font></strong><br>
+<font color=red size=4><strong>wiki对应游戏版本：1.4.8.4，目前部分内容已经过时，正在更新中</font></strong><br>
 
 [<a href="?file=000-猫国萌新指导/01-猫国萌新指导">更新中的萌新指导</a>]<br>
 [<a href="?file=004-第三方工具/02-小猫科学家">小猫珂学家使用教程</a>]<br>
@@ -13,7 +13,9 @@
 
 <strong>《猫国建设者》</strong>是一款由bloodrizer开发的文字放置村庄管理网页游戏。在游戏里，你管理着一个村庄的猫咪，它们会不断地获取资源、学习技术。该游戏目前仍在开发中，因此价格和平衡都可能会发生变化。
 
-<font color=red><strong>使用左侧导航栏时，请注意清空上方搜索框中的筛选内容，否则导航栏可能会不显示其他内容！</font></strong><br>
+
+<font color=red size=6><strong>使用左侧导航栏时，请注意清空上方搜索框中的筛选内容，否则导航栏可能会不显示其他内容！</font></strong><br>
+
 
 ### 快速导航
 
@@ -73,7 +75,7 @@
 	<tr>
 	    <td><a href="?file=001-猫咪百科/10-统计">统计</a></td>
 	    <td><a href="?file=002-常用资料/004-错误反馈">问题反馈</a></td>
-	    <td><a href="http://bloodrizer.ru/games/kittens/wiki/index.php?page=Main+page"class="external">英文维基(最新最全)</a></td>
+	    <td><a href="http://bloodrizer.ru/games/kittens/wiki/index.php?page=Main+page"class="external">英文wiki</a></td>
 	</tr>
     </tbody>
 </table>
