@@ -515,9 +515,9 @@ dojo.declare("classes.managers.TimeManager", com.nuclearunicorn.core.TabManager,
         }
 
         if (amt == 1) {
-            game.msg($I("time.tc.shatterOne"), "", "tc");
+            game.msg($I("time.tc.shatterOne"), "", "tcShatter");
         } else {
-            game.msg($I("time.tc.shatter",[amt]), "", "tc");
+            game.msg($I("time.tc.shatter",[amt]), "", "tcShatter");
         }
 
         this.flux += amt - 1 + remainingDaysInFirstYear / daysPerYear;
@@ -736,7 +736,7 @@ dojo.declare("classes.ui.time.ShatterTCBtnController", com.nuclearunicorn.game.u
 	                }
 
                     priceLoop *= (1 + this.game.getLimitedDR(this.game.getEffect("shatterCostReduction"),1) + 
-                        this.game.getEffect("shatterCostIncrease"));
+                        this.game.getEffect("shatterCostIncreaseChallenge"));
 
                     pricesTotal.timeCrystal += priceLoop;
                     
