@@ -13,17 +13,17 @@
 
 		<!-- I only use jquery ironically -->
 
-		<script src="lib/react.min.js"></script>   <!--todo: use min version -->
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/react.min.js"></script>   <!--todo: use min version -->
 
 		<!-- Local versions of libs will be hosted so our Chinese players wont be forced to use VPN -->
-		<script src="lib/jQuery.js"></script>
-		<script src="lib/dojo.xd.js"></script>
-		<script src="lib/lz-string.js"></script>
-		<script src="lib/dropbox_v2.js"></script>
-		<script src="lib/md5.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/jQuery.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/dojo.xd.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/lz-string.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/dropbox_v2.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/md5.js"></script>
 
 		<!-- friends don't let friends use AMD and require.js -->
-		<script src="lib/system.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/system.js"></script>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QBDX221PR"></script>
@@ -91,7 +91,7 @@
 
 				var i = (Math.floor(Math.random() * loadingMessages.length));
 				$("#loadingProgressInfo").html(loadingMessages[i] + "...&nbsp(" + progress.toFixed() + "%)");
-				return System.import(module + ".js?_=" + now);
+				return System.import("https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/" + module + ".js?_=" + now);
 			}
 
 			function _import(module, def){
@@ -111,7 +111,7 @@
 				$("<link />")
 					.attr("rel", "stylesheet")
 					.attr("type", "text/css")
-					.attr("href", "res/theme_" + themeId + ".css?_=" + timestamp)
+					.attr("href", "https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/res/theme_" + themeId + ".css?_=" + timestamp)
 					.appendTo($("head"));
 			}
 
@@ -366,7 +366,7 @@
 
 			<div id="loadingContainer">
 				<div class="content">
-					<span style="font-size:18px;"><img class="loader" width="16" height="16" src="res/ajax-loader.gif">&nbsp;Loading...<br></span>
+					<span style="font-size:18px;"><img class="loader" width="16" height="16" src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/res/ajax-loader.gif">&nbsp;Loading...<br></span>
 					<br>
 					<progress id="loadingProgressBar" value="0" max="100"></progress>
 					<div id="loadingProgressInfo">Setting up game engine...</div>
@@ -704,7 +704,7 @@
 				localStorage['zh.ks.enable'] = 'enable';
 				$("#ks-label").text("可爱的猫猫科学家为您服务");
 				$("#set-ks-enable").attr("checked", true);
-				document.body.appendChild(document.createElement('script')).src = 'cbc-kitten-scientists/kitten-scientists.user.js';
+				document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/cirn09/cbc-kitten-scientists/kitten-scientists.user.js';
 			};
 			var disableKS = function () {
 				localStorage['zh.ks.enable'] = 'disable';
@@ -727,7 +727,7 @@
 			var enableKGP = function () { 
 				localStorage['zh.kgp.enable'] = 'enable';
 				$("#set-kgp-enable").attr("checked", true);
-				document.body.appendChild(document.createElement('script')).src = 'KGProgressBars/dist/KGP.js';
+				document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/vl20100/KGProgressBars/KGProgressBars/dist/KGP.js';
 			};
 			var disableKGP = function () {
 				localStorage['zh.kgp.enable'] = 'disable';
@@ -753,7 +753,7 @@
 					}, 2000);
 				} else {
 					// NummonInit();
-					document.body.appendChild(document.createElement('script')).src = 'NummonCalc/NummonCalc.js';
+					document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/cirn09/NummonCalc/NummonCalc.js';
 				}
 			};
 			_282d5adfdca92885cd9f210a9b60a328();
