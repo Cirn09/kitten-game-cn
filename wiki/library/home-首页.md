@@ -1,21 +1,28 @@
 # 猫国建设者游戏百科
 
 ---
-<font color=red size=4><strong>wiki对应游戏版本：1.4.8.4，目前部分内容已经过时，正在更新中</font></strong><br>
+<font size=4>wiki对应游戏版本：<font color=red>1.4.8.4</font>，目前部分内容已经过时，正在更新中</font><br>
 
-[<font size=5><a href="?file=000-猫国萌新指导/01-猫国萌新指导">更新中的萌新指导</a></font>]<br>
-[<font size=5><a href="?file=004-第三方工具/02-小猫科学家">小猫珂学家使用教程</a></font>]<br>
+[<font size=4><a href="?file=000-猫国萌新指导/01-猫国萌新指导">萌新指导</a></font>] <font size=3>或 </font> [<font size=4><a href="?file=000-猫国萌新指导/02-政策效果解析">政策解析</a></font>]<br>
+[<font size=4><a href="?file=004-第三方工具/02-小猫科学家">小猫珂学家的使用教程</a></font>]<br>
 
-<strong>猫国wiki目前还在进一步修缮中。如果发现新版WIKI有任何错误或其他建议，欢迎在群里反馈。QQ群：499256691</strong><br><br>
+<strong>猫国wiki目前还在进一步修缮中。如果发现新版WIKI有任何错误或其他建议，欢迎在群里反馈。QQ群：499256691</strong><br>
 
 ---
 > ###### 你是猫薄荷森林中的一只小猫。<br>
 
-<strong>《猫国建设者》</strong>是一款由bloodrizer开发的文字放置村庄管理网页游戏。在游戏里，你管理着一个村庄的猫咪，它们会不断地获取资源、学习技术。该游戏目前仍在开发中，因此价格和平衡都可能会发生变化。
+<strong>《猫国建设者》</strong>是一款由bloodrizer开发的文字放置村庄管理网页游戏。在游戏里，你管理着一个村庄的猫咪，它们会不断地获取资源、学习技术。<br>
 
+该游戏目前仍在开发中，因此价格和平衡都可能会发生变化。<br>
 
-<font color=red size=6><strong>使用左侧导航栏时，请注意清空上方搜索框中的筛选内容，否则导航栏可能会不显示其他内容！</font></strong><br>
+---
+<font color=red size=4>使用左侧导航栏时，请注意**清空上方搜索框中的筛选内容**，**否则导航栏可能会不显示其他内容**！</font><br>
 
+<font color="#6A5ACD" size=4>搜索推荐使用左侧导航栏**全库搜索**功能，就是点击**放大镜图标**。（每隔一段时间需要更新所有缓存）</font><br>
+
+<font color="#FF6347" size=4>页面右边有 **目录超链接** 和 **返回顶部按钮**。</font><br>
+
+---
 
 ### 快速导航
 
@@ -32,7 +39,7 @@
         <td><a href="http://bloodrizer.ru/games/kittens/">玩游戏（英文原版）</a></td>
 	</tr>
 	<tr>
-	    <td><a href="?file=001-猫咪百科/02-村庄">村庄</a></td>
+	    <td><a href="?file=001-猫咪百科/02-村庄/01-职业">村庄</a></td>
 	    <td><a href="?file=002-常用资料/001-游戏机制">游戏机制</a></td>
 	    <td><a href="/#">玩游戏（汉化版）</a></td>
 	</tr>
@@ -49,7 +56,7 @@
 	</tr>
 	<tr>
 	    <td><a href="?file=001-猫咪百科/05-贸易">贸易</a></td>
-	    <td><a href="?file=002-常用资料/007-挑战模式">挑战</a></td>
+	    <td><a href="?file=001-猫咪百科/11-挑战">挑战</a></td>
         <td><a href="http://irc.lc/irc.canternet.org/kittensgame/Kitten@@@@" class="external">IRC 频道</a></td>
 	</tr>
 	<tr>
@@ -63,7 +70,7 @@
 	    <td><a href="http://kittensgame.tumblr.com/" class="external">tumblr</a></td>
 	</tr>
 	<tr>
-	    <td><a href="?file=001-猫咪百科/08-时间">时间</a></td>
+	    <td><a href="?file=001-猫咪百科/08-时间/01-时间">时间</a></td>
 	    <td><a href="?file=004-第三方工具/01-第三方工具">第三方工具</a></td>
 	    <td><a href="https://discord.gg/2arBf9K">Discord 频道</td>
 	</tr>
