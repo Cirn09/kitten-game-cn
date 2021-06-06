@@ -16,7 +16,7 @@
 		<script src="lib/react.min.js"></script>   <!--todo: use min version -->
 
 		<!-- Local versions of libs will be hosted so our Chinese players wont be forced to use VPN -->
-		<script src="lib/jQuery.js"></script>
+		<script src="lib/jQuery.js?v=_2"></script>
 		<script src="lib/dojo.xd.js"></script>
 		<script src="lib/lz-string.js"></script>
 		<script src="lib/dropbox_v2.js"></script>
@@ -91,7 +91,7 @@
 
 				var i = (Math.floor(Math.random() * loadingMessages.length));
 				$("#loadingProgressInfo").html(loadingMessages[i] + "...&nbsp(" + progress.toFixed() + "%)");
-				return System.import(module + ".js?_=" + now);
+				return System.import(module + ".js?v_=" + version);
 			}
 
 			function _import(module, def){
@@ -690,15 +690,6 @@
 				<!--  | <a href="classic/" target="_blank">classic</a> -->
 			</div>
 		</div>
-		<!--客服 开始-->
-		 <link rel="stylesheet" href="https://likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
-		<script src="https://likexia.gitee.io/game/js/kf.js"></script>
-		<style>
-			#optionsDiv{
-				margin-top: -300px;
-			}    
-		</style>
-	 <!-- 客服 结束 -->
 		<script type="text/javascript">
 			var enableKS = function () { 
 				localStorage['zh.ks.enable'] = 'enable';
