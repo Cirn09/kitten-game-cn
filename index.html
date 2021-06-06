@@ -13,17 +13,17 @@
 
 		<!-- I only use jquery ironically -->
 
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/react.min.js"></script>   <!--todo: use min version -->
+		<script src="lib/react.min.js"></script>   <!--todo: use min version -->
 
 		<!-- Local versions of libs will be hosted so our Chinese players wont be forced to use VPN -->
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/jQuery.js?v=_2"></script>
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/dojo.xd.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/lz-string.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/dropbox_v2.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/md5.js"></script>
+		<script src="lib/jQuery.js?v=_2"></script>
+		<script src="lib/dojo.xd.js"></script>
+		<script src="lib/lz-string.js"></script>
+		<script src="lib/dropbox_v2.js"></script>
+		<script src="lib/md5.js"></script>
 
 		<!-- friends don't let friends use AMD and require.js -->
-		<script src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/lib/system.js"></script>
+		<script src="lib/system.js"></script>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0QBDX221PR"></script>
@@ -70,8 +70,7 @@
 
 		<script type="text/javascript">
 
-			var version = "1485";
-			var buildRevision = 0;
+			var version = "1484";
 
 			var loadingProgress = 0,
 				progressMax = 0;
@@ -92,7 +91,7 @@
 
 				var i = (Math.floor(Math.random() * loadingMessages.length));
 				$("#loadingProgressInfo").html(loadingMessages[i] + "...&nbsp(" + progress.toFixed() + "%)");
-				return System.import("https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/" + module + ".js?rev_=" + buildRevision);
+				return System.import(module + ".js?v_=" + version);
 			}
 
 			function _import(module, def){
@@ -112,7 +111,7 @@
 				$("<link />")
 					.attr("rel", "stylesheet")
 					.attr("type", "text/css")
-					.attr("href", "https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/res/theme_" + themeId + ".css?_=" + timestamp)
+					.attr("href", "res/theme_" + themeId + ".css?_=" + timestamp)
 					.appendTo($("head"));
 			}
 
@@ -123,6 +122,7 @@
 				} else if (window.location.href.indexOf("beta") >= 0) {
 					displayedVersion += "-&beta;";
 				}
+				$("#versionLink").html(displayedVersion);
 
 				$("#tooltip").hide();
 
@@ -140,17 +140,6 @@
 					"js/diplomacy",
 					"js/religion",
 					"js/achievements",
-
-
-					"js/jsx/left.jsx",
-					"js/jsx/mid.jsx",
-					"js/jsx/toolbar.jsx",
-					"js/jsx/chiral.jsx",
-					"js/jsx/map.jsx",
-
-					//required for defining IReactAware, will be relied upon by js/space
-					"js/ui",
-
 					"js/space",
 					"js/prestige",
 					"js/time",
@@ -160,6 +149,12 @@
 					"js/math",
 					"game",
 
+					"js/jsx/left.jsx",
+					"js/jsx/mid.jsx",
+					"js/jsx/toolbar.jsx",
+					"js/jsx/map.jsx",
+
+					"js/ui",
 					"js/toolbar"
 				];
 				progressMax = modules.length + 3;
@@ -175,18 +170,13 @@
 					}
 				}
 
-				var def = $.getJSON("build.version.json?="+now).then(function(json){
-					buildRevision = json.buildRevision;
-					console.log("build revison is" + buildRevision);
-					$("#versionLink").html(displayedVersion + ".r" + buildRevision);
-				});
-				def = _import("config", def);
+				var def = _import("config");
 				def.then(function() {
 					var schemes = new classes.KGConfig().statics.schemes;
 					for (var i = 0; i < schemes.length; ++i) {
 						//todo: skip theme if preloaded
 						if (!uiSettings || uiSettings.theme != schemes[i]){
-							loadTheme(schemes[i], buildRevision);
+							loadTheme(schemes[i], now);
 						}
 					}
 				});
@@ -252,14 +242,6 @@
 					gamePage.ui.renderFilters();
 					gamePage.ui.onLoad();
 					gamePage.start();
-
-
-					//load optional irc
-
-					$('iframe#kiwiirc_iframe').attr(
-						'src', 
-						'https://kiwiirc.com/nextclient/?settings=98efrnr34rbd&nick=kitten_?'
-					);
 
 					var config = new classes.KGConfig();
 					if (gamePage.isEldermass()){
@@ -384,7 +366,7 @@
 
 			<div id="loadingContainer">
 				<div class="content">
-					<span style="font-size:18px;"><img class="loader" width="16" height="16" src="https://cdn.jsdelivr.net/gh/cirn09/kitten-game-cn/res/ajax-loader.gif">&nbsp;Loading...<br></span>
+					<span style="font-size:18px;"><img class="loader" width="16" height="16" src="res/ajax-loader.gif">&nbsp;Loading...<br></span>
 					<br>
 					<progress id="loadingProgressBar" value="0" max="100"></progress>
 					<div id="loadingProgressInfo">Setting up game engine...</div>
@@ -464,7 +446,7 @@
 						<div id="IRCChatInner">
 
 							<!--iframe-- src="https://kiwiirc.com/client/irc.canternet.org/?nick=kitten_?#kittensgame" style="border:0; width: 400px; height:800px;"></iframe-->
-							<!-- <iframe id="kiwiirc_iframe" style="border:0; width: 400px; height:800px;"></iframe> -->
+							<!-- <iframe src="https://kiwiirc.com/nextclient/?settings=98efrnr34rbd&nick=kitten_?" style="border:0; width: 400px; height:800px;"></iframe> -->
 						</div>
 					</div>
 				</div>
@@ -713,7 +695,7 @@
 				localStorage['zh.ks.enable'] = 'enable';
 				$("#ks-label").text("可爱的猫猫科学家为您服务");
 				$("#set-ks-enable").attr("checked", true);
-				document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/cirn09/cbc-kitten-scientists/kitten-scientists.user.js';
+				document.body.appendChild(document.createElement('script')).src = 'cbc-kitten-scientists/kitten-scientists.user.js';
 			};
 			var disableKS = function () {
 				localStorage['zh.ks.enable'] = 'disable';
@@ -736,7 +718,7 @@
 			var enableKGP = function () { 
 				localStorage['zh.kgp.enable'] = 'enable';
 				$("#set-kgp-enable").attr("checked", true);
-				document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/vl20100/KGProgressBars@main/dist/KGP.js';
+				document.body.appendChild(document.createElement('script')).src = 'KGProgressBars/dist/KGP.js';
 			};
 			var disableKGP = function () {
 				localStorage['zh.kgp.enable'] = 'disable';
@@ -762,7 +744,7 @@
 					}, 2000);
 				} else {
 					// NummonInit();
-					document.body.appendChild(document.createElement('script')).src = 'https://cdn.jsdelivr.net/gh/cirn09/NummonCalc/NummonCalc.js';
+					document.body.appendChild(document.createElement('script')).src = 'NummonCalc/NummonCalc.js';
 				}
 			};
 			_282d5adfdca92885cd9f210a9b60a328();
